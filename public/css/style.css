@@ -1,0 +1,602 @@
+/* Root Variables */
+:root {
+    --primary-blue: #B2D4F3;
+    --secondary-blue: #6CACF4;
+    --dark-blue: #0D55A7;
+    --light-blue: #D4EEF9;
+    --white: #FFFFFF;
+    --black: #111111;
+    --gray: #AAAAAA;
+    --light-gray: #F8F9FA;
+    --border-gray: #E9ECEF;
+}
+
+/* Global Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 76px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, .font-libre {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--secondary-blue);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Custom Colors */
+.bg-primary-gradient {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)) !important; /* Light blue to darker blue */
+}
+.bg-stv {
+    background-color: var(--primary-blue) !important;
+}
+.text-primary {
+    color: var(--secondary-blue) !important;
+}
+.btn-primary {
+    background-color: var(--secondary-blue);
+    border-color: var(--secondary-blue);
+}
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+.btn-outline-primary {
+    color: var(--secondary-blue);
+    border-color: var(--primary-blue);
+}
+.btn-outline-primary:hover {
+    border-color: var(--primary-blue);
+    background-color: var(--secondary-blue);
+    color: var(--dark-blue);
+}
+.btn-light{
+    color: var(--secondary-blue);
+}
+.btn-light:hover{
+    color: var(--dark-blue);
+}
+.btn-secondary {
+    background-color: var(--white);
+    border-color: var(--secondary-blue);
+    color: var(--secondary-blue);
+}
+.bg-warning.text-white {
+    background-color: #ffc107 !important;
+    color: #fff !important;
+}
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529; /* Dark text for warning button */
+}
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    color: #212529;
+}
+.nav-item{
+    color: var(--white);
+}
+.nav-pills .nav-link.active {
+    background-color: var(--secondary-blue) !important;
+    color: white !important;
+    border-radius: 8px;
+}
+.nav-pills .nav-link.active i {
+    color: white !important;
+}
+.nav-pills .nav-link:not(.active):hover {
+    background-color: #f8f9fa;
+    color: #0D8ABC;
+    transition: all 0.3s ease;
+}
+.nav-toggler {
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-blue);
+    color: #f8f9fa;
+}
+.footer h5 {
+    color: var(--primary-blue);
+    margin-bottom: 1.25rem;
+}
+.footer p.text-muted,
+.footer a.text-muted {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+.footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer a:hover {
+    color: var(--secondary-blue) !important;
+}
+.footer .social-links a {
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+}
+.footer .social-links a:hover {
+    color: var(--secondary-blue) !important;
+}
+/* Kontak list styling (ikon dan teks sejajar) */
+.footer ul.list-unstyled i {
+    color: var(--primary-blue);
+}
+
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.hero-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Feature Boxes */
+#features h2 {
+    color: var(--white);
+}
+.feature-box {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Testimonial */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3.5%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.carousel-control-prev::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-blue), rgba(0, 0, 0, 0));
+    z-index: -1;
+}
+.carousel-control-next::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, var(--primary-blue), rgba(0, 0, 0, 0));
+    z-index: -1;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: brightness(2);
+}
+
+/* CTA */
+#cta h2 {
+    color: var(--white);
+}
+
+/* Cards (Semesters, Courses) */
+.card h2{
+    color: var(--secondary-blue);
+}
+.animated-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.animated-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Sidebar User */
+.sidebar-custom {
+    width: 280px;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar-custom {
+        width: 70px;
+    }
+    
+    .sidebar-text {
+        display: none;
+    }
+    
+    .sidebar-custom hr {
+        display: none;
+    }
+}
+
+/* Sidebar Admin */
+#wrapper {
+    overflow-x: hidden;
+    display: flex; 
+    width: 100%; 
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem; 
+    transition: margin .25s ease-out; 
+    background-color: #343a40 !important; 
+    position: sticky;
+    top: 0; 
+    z-index: 1030; 
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem; 
+}
+
+#page-content-wrapper {
+    min-width: 100vw; 
+    flex-grow: 1; 
+    transition: margin .25s ease-out;
+}
+
+
+body.toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+}
+
+
+body.toggled #wrapper #page-content-wrapper {
+    margin-left: 15rem;
+    width: calc(100vw - 15rem);
+}
+
+
+.list-group-item.active-admin {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0; 
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+        margin-left: 15rem; 
+    }
+
+    body.toggled #wrapper #sidebar-wrapper {
+        margin-left: -15rem; 
+    }
+
+    body.toggled #wrapper #page-content-wrapper {
+        margin-left: 0; 
+        width: 100vw;
+    }
+}
+
+/* Material toggle */
+.material-content {
+    display: none;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body.toggled #wrapper #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+@media (max-width: 768px){
+    .navbar-collapse .navbar-nav {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .navbar-collapse .nav-item {
+        padding-left: 0; 
+        margin-left: 0;
+    }
+
+    .navbar-collapse .nav-item .nav-link,
+    .navbar-collapse .nav-item .btn {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+    }
+
+    .navbar-collapse .nav-item .btn {
+        margin-left: 0 !important;
+        width: 100%; 
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        text-align: center;
+    }
+
+    /* Footer */
+    .footer{
+        margin-bottom: 60px;
+    }
+    .footer .row > div {
+        text-align: center;
+    }
+    .footer .list-unstyled li {
+        text-align: center;
+        margin-bottom: .5rem;
+    }
+    .footer .social-links {
+        justify-content: center !important;
+        display: flex !important;
+    }
+    .footer .social-links a {
+        margin: 0 0.5rem;
+    }
+    .footer .col-md-6 {
+        text-align: center !important;
+    }
+    .footer .list-inline-item {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
+}
+
+/* For profile image placeholder */
+.rounded-circle {
+    object-fit: cover;
+}
+
+/* Table improvements sesuai dengan theme yang ada */
+.table-hover tbody tr:hover {
+    background-color: rgba(178, 212, 243, 0.1); /* Using var(--primary-blue) with opacity */
+    transform: scale(1.002);
+    transition: all 0.2s ease;
+}
+
+.table th {
+    border-bottom: 2px solid var(--border-gray);
+    font-weight: 600;
+    color: var(--dark-blue);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: var(--light-gray);
+}
+
+/* Badge improvements dengan theme warna */
+.badge.bg-primary {
+    background-color: var(--secondary-blue) !important;
+}
+
+.badge.bg-light {
+    background-color: var(--light-gray) !important;
+    color: var(--dark-blue) !important;
+}
+
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.8em;
+    border-radius: 6px;
+}
+
+/* Code styling dengan theme */
+code {
+    font-size: 0.875rem;
+    border-radius: 6px;
+    font-weight: 500;
+    background-color: var(--light-gray) !important;
+    color: var(--dark-blue) !important;
+    border: 1px solid var(--border-gray);
+}
+
+/* Form improvements */
+.form-select:focus, .form-control:focus {
+    border-color: var(--secondary-blue);
+    box-shadow: 0 0 0 0.25rem rgba(108, 172, 244, 0.25);
+}
+
+.form-select-lg {
+    padding: 0.75rem 2.25rem 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+/* Card header dengan theme */
+.card-header.bg-primary {
+    background-color: var(--secondary-blue) !important;
+    border-bottom: none;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+}
+
+.card-header {
+    border: none;
+    font-weight: 600;
+    padding: 1.25rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Hover effects untuk interaktivitas */
+.btn:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Filter section styling */
+.form-label {
+    color: var(--dark-blue);
+}
+
+/* Empty state styling */
+.text-center .fas {
+    color: var(--gray) !important;
+}
+
+/* Success text color untuk harga */
+.text-success {
+    color: #28a745 !important;
+}
+
+/* Animation untuk page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:not(.feature-box), .table-responsive {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Perbaikan untuk footer yang sudah ada */
+.footer {
+    margin-top: 3rem;
+    padding: 3rem 0 1rem 0;
+}
+
+.footer h5 {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer .social-links a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(178, 212, 243, 0.1);
+    transition: all 0.3s ease;
+    margin: 0 0.25rem;
+}
+
+.footer .social-links a:hover {
+    background: rgba(178, 212, 243, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+    }
+    
+    .form-select-lg {
+        font-size: 0.875rem;
+        padding: 0.5rem 1.75rem 0.5rem 0.75rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar, .footer, .btn {
+        display: none !important;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid var(--border-gray);
+    }
+    
+    .table th {
+        background-color: var(--light-gray) !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
