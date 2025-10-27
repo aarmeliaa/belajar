@@ -1,23 +1,20 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/courses', [CourseController::class, 'index']);
-Route::get('/courses/create', [CourseController::class, 'create']) ->name('courses.create');
-Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
-Route::delete('/courses/{id}', [CourseController::class, 'destroy'])->name('courses.destroy');
-Route::get('/courses/{id}/edit', [CourseController::class, 'edit'])->name('courses.edit');
-Route::put('/courses/{id}', [CourseController::class, 'update'])->name('courses.update');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+require __DIR__.'/auth.php';
