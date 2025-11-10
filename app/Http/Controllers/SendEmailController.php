@@ -6,19 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\SendEmail;
+use App\Jobs\SendMailJob;
 
 class SendEmailController extends Controller
 {
     public function index(){
-        $content = [
-            'name' => 'Azzahra dari STUDIVINE',
-            'subject' => 'Halo :3',
-            'body' => 'Ini adalah isi email yang dikirim dari Laravel'
-        ];
+        return view('emails.kirim-email');
+    }
 
-        Mail::to('faradisy20@gmail.com')->send(new 
-        SendEmail($content));
-
-        return "Email berhasil dikirim.";
+    public function store(Request $request){
+        $data = $request->all();
+        dispatch(new SendMailJob($data));
+        return redirect()->route('kirim-email')
+        ->with('success', 'Email berhasil dikirim');
     }
 }
